@@ -1,24 +1,96 @@
-# README
+# Utilizing this Ruby on Rails CRUD API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An API platform such as [Postman](https://www.postman.com/) will be needed.
 
-Things you may want to cover:
+<img src="https://i.imgur.com/wRnnCqt.png" alt="wither-logo" width="400">
 
-* Ruby version
+### Getting Started
 
-* System dependencies
+Navigate to the [Heroku](https://rails-bestiary.herokuapp.com/entries) hosted index page.
 
-* Configuration
+A list of creatures from the world of the Witcher should be returned in JSON format.
 
-* Database creation
+Copy and past this URL into the API platform.
 
-* Database initialization
+### Adding Creatures
 
-* How to run the test suite
+The Schema is as follows:
 
-* Services (job queues, cache servers, search engines, etc.)
+    t.string "category"
+    t.string "name"
+    t.string "sword"
+    t.string "spell"
 
-* Deployment instructions
+In order to add a creature the route must be set to POST.
 
-* ...
+<img src="https://i.imgur.com/iACzHaD.png" alt="post-route" width="600">
+
+Be sure to select the **'Body'** tab below the URL, set to **'raw'** and the dropdown menu to **'JSON'**.
+
+Now write a JSON object following this Model to add a new Hero.
+
+    {
+        "category":"string",
+        "name":"string",
+        "sword":"string",
+        "spell":"string"
+    }
+
+<img src="https://i.imgur.com/R0jLlk8.png" alt="post-panther" width="600">
+
+Press the blue **'Send'** button.
+
+If entered correctly you will recieve a similar response with a generated **id** in the API platform.
+
+<img src="https://i.imgur.com/eQBbbBc.png" alt="response-panther" width="800">
+
+On reload of the app page in the browser, the new creature is visible at the bottom.
+
+Multiple creatures can be added at once by placing a comma between objects on entry.
+
+    {
+        "category":"string",
+        "name":"string",
+        "sword":"string",
+        "spell":"string"
+    },
+    {
+        "category":"string",
+        "name":"string",
+        "sword":"string",
+        "spell":"string"
+    },
+    {
+        "category":"string",
+        "name":"string",
+        "sword":"string",
+        "spell":"string"
+    }
+
+### Updating Creatures
+
+To update the creature from a Ghoul to an Alghoul, first change the route from **'POST'** to **'PUT'**.
+
+<img src="https://i.imgur.com/VqL5w65.png" alt="put-panther" width="400">
+
+Next copy the **id** from the recently added creature, excluding quotations, and paste it after `/heroes/` in the URL.
+
+* your id string will be different.
+
+<img src="https://i.imgur.com/b9gYsaA.png" alt="id-panther" width="600">
+
+Now change the name in your input and press the blue **'Send'** button.
+
+You will recieve a response showing your changes. Reload the app page to double check it worked.
+
+<img src="https://i.imgur.com/3F3PcVa.png" alt="response-panther-2" width="700">
+
+### Deleting Creatures
+
+Once the beast has been hunted. Again change the route, this time to **'Delete'**, without changing the URL from before.
+
+<img src="https://imgur.com/qQEd4mf.png" width="600">
+
+Press the blue **'Send'** button. Reload the app page to see that Alghoul has slaughtered.
+
+<img src="https://imgur.com/QDeVXvz.jpg" alt="thort" width="400">
