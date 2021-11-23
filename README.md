@@ -1,4 +1,4 @@
-# Utilizing this Ruby on Rails CRUD API
+# Utilizing this Ruby on Rails / Postgresql CRUD API
 
 An API platform such as [Postman](https://www.postman.com/) will be needed.
 
