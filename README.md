@@ -16,10 +16,14 @@ Copy and past this URL into the API platform.
 
 The Schema is as follows:
 
-    t.string "category"
-    t.string "name"
-    t.string "sword"
-    t.string "spell"
+    create_table "entries", force: :cascade do |t|
+        t.string "category"
+        t.string "name"
+        t.string "sword"
+        t.string "spell"
+        t.datetime "created_at", precision: 6, null: false
+        t.datetime "updated_at", precision: 6, null: false
+    end
 
 In order to add a creature the route must be set to POST.
 
@@ -27,7 +31,7 @@ In order to add a creature the route must be set to POST.
 
 Be sure to select the **'Body'** tab below the URL, set to **'raw'** and the dropdown menu to **'JSON'**.
 
-Now write a JSON object following this Model to add a new Hero.
+Now write a JSON object following this Model to add a new creature.
 
     {
         "category":"string",
@@ -36,11 +40,13 @@ Now write a JSON object following this Model to add a new Hero.
         "spell":"string"
     }
 
+* id and timespamps auto-generate.
+
 <img src="https://i.imgur.com/R0jLlk8.png" alt="post-panther" width="600">
 
 Press the blue **'Send'** button.
 
-If entered correctly you will recieve a similar response with a generated **id** in the API platform.
+If entered correctly you will recieve a similar response in the API platform.
 
 <img src="https://i.imgur.com/eQBbbBc.png" alt="response-panther" width="800">
 
@@ -93,4 +99,4 @@ Once the beast has been hunted. Again change the route, this time to **'Delete'*
 
 Press the blue **'Send'** button. Reload the app page to see that Alghoul has slaughtered.
 
-<img src="https://imgur.com/QDeVXvz.jpg" alt="thort" width="400">
+<img src="https://imgur.com/dQbYRHV.jpg" alt="thort" width="400">
